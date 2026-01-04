@@ -14,11 +14,12 @@ int main()
   string date;
   cin >> date;
 
-  // 10.21보다 35 이전 "GOOD", 36일 넘으면 "TOO LATE"
-  // 10.1 ~ 10.20: 20일
-  // 9.14~ 9.28: 15일
-  // 9.13~ TOO LATE
-  if (date[5]-)
+  int month = stoi(date.substr(5, 2));
+  int day = stoi(date.substr(8, 2));
+
+  if (month <= 8) cout << "GOOD";
+  else if (month == 9 && day <= 16) cout << "GOOD";
+  else cout << "TOO LATE";
 
   return 0;
 }
