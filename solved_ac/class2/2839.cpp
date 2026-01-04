@@ -1,3 +1,6 @@
+// Authored by: Arenslien
+// BOJ: 2839 - 설탕 배달
+
 #include <iostream>
 
 using namespace std;
@@ -6,20 +9,16 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  int N, max = 0;
+  int N, max = 5000;
   cin >> N; 
 
-  if (N%5 == 0) max = N/5;
-  else if (N%3 == 0) max = N/3;
-  else {
-    for (int i=(N/5); i>=0; i--) {
-      if ((N-i*5)%3 == 0) {
-        if (i + (N-i*5)/3 < max) max = i + (N-i*5)/3;
-      }
+  for (int i=0; i<=N/5; ++i) {
+    for (int j=0; j<=N/3; ++j) {
+      if (5*i + 3*j == N && i+j < max) max = i+j;
     }
   }
 
-  cout << max;
+  cout << (max == 5000 ? -1: max);
 
   return 0;
 }
