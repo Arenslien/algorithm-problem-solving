@@ -5,15 +5,14 @@
 using namespace std;
 
 
-int is_exist(const vector<int>& arr, int num, int start, int end) {
-  if (start > end) return 0;
-  // if (start == end && num != arr[mid]) return 0;
+bool is_exist(const vector<int>& arr, int x, int start, int end) {
+  if (start > end) return false;
   
   int mid = (start+end) / 2;
   
-  if (num == arr[mid]) return 1;
-  else if (num < arr[mid]) return is_exist(arr, num, start, mid-1);
-  else return is_exist(arr, num, mid+1, end);
+  if (x == arr[mid]) return true;
+  else if (x < arr[mid]) return is_exist(arr, x, start, mid-1);
+  else return is_exist(arr, x, mid+1, end);
 }
 
 int main() {
@@ -34,9 +33,9 @@ int main() {
 
   cin >> M;
   while (M--) {
-    int num;
-    cin >> num;
-    cout << is_exist(v, num, 0, v.size()) << '\n';
+    int x;
+    cin >> x;
+    cout << (is_exist(v, x, 0, v.size()-1) ? 1:0) << '\n';
   }
 
   return 0;
