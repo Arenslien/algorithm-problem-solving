@@ -18,12 +18,13 @@ void recursion(int depth, int maxDepth) {
   }
   else {
     cout << indent << "\"재귀함수는 자기 자신을 호출하는 함수라네\"\n";
+    cout << indent << "라고 답변하였지.\n";
     return;
   }
 
   recursion(depth + 1, maxDepth);
 
-  cout << indent << "라고 답변하였지.";
+  cout << indent << "라고 답변하였지.\n";
 
   return;
 }
