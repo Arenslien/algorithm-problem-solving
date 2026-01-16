@@ -10,8 +10,8 @@
 
 | Platform | Folder | Main Languages | Profile |
 | :--- | :--- | :--- | :--- |
-| **Baekjoon** | [`/baekjoon`](./baekjoon) | C++, Python | [Arenslien](https://www.acmicpc.net/user/ibo703) |
-| **Programmers** | [`/programmers`](./programmers) | C++, Java | ... |
+| **Baekjoon** | [`/baekjoon`](./Baekjoon) | C++, Python | [Arenslien](https://www.acmicpc.net/user/ibo703) |
+| **Programmers** | [`/programmers`](./Programmers) | C++, Java | ... |
 | **Codeforces** | `Coming Soon` | - | - |
 
 ---
