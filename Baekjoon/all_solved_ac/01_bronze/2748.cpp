@@ -34,14 +34,14 @@ int main() {
   int n;
   cin >> n;
 
-  long long fn_1 = 0; // F(n-1) 
-  long long fn_2 = 1; // F(n-2)
+  long long fn_2 = 0; // F(n-1) 
+  long long fn_1 = 1; // F(n-2)
   long long fn = 1;   // F(n)
 
   for (int i=2; i<=n; ++i) {
     fn = fn_1 + fn_2;
-    fn_1 = fn_2;
-    fn_2 = fn;
+    fn_2 = fn_1;
+    fn_1 = fn;
   }
 
   cout << fn;
