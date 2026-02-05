@@ -3,15 +3,13 @@
 
 #include <iostream>
 #include <stack>
+#include <vector>
 
 using namespace std;
 
 struct node {
   int value, index;
 };
-
-// 4
-// 3 5 2 7
 
 int main() {
   ios::sync_with_stdio(false);
@@ -20,36 +18,24 @@ int main() {
   int N;
   cin >> N;
 
-  stack<node> s;
+  vector<int> result(N, -1);
 
-  s.push({1000001, -1}); // sentinel의 사전적 의미: '파수꾼' '보초' '감시자'
-                         // 스택이 비었는지 확인하는 대신
-                         // 항상 이 값이 top에 있도록 하여
-                         // 비교 연산을 단순화
+  stack<node> s;
+  s.push({1000005, -1});
 
   for (int i=0; i<N; ++i) {
-    int num;
-    cin >> num;
+    int A;
+    cin >> A;
 
-    while (s.top().value < num) s.pop();
+    while (s.top().value < A) {
+      result[s.top().index] = A;
+      s.pop();
+    }
 
-    if () {}
-
-
-
-
+    s.push({A, i});
   }
+
+  for (int i=0; i<N; ++i) cout << result[i] << ' ';
 
   return 0;
 }
-
-// 4
-// 3 3 7 2
-// 7 7 -1 -1
-// MAX < 3 - F
-
-
-
-// 4
-// 3 5 2 7
-// 5 7 7 -1
