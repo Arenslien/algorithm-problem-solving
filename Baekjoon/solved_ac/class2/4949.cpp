@@ -25,14 +25,18 @@ int main() {
     for (const char c : line) {
       if (c == '(' || c == '[') ST.push(c);
       else if (c == ')') {
-        if (ST.empty()) ST.push(c);
-        else if (ST.top() == '(') ST.pop();
-
+        if (ST.empty() || ST.top() != '(') {
+          ST.push(c);
+          break;
+        }
+        ST.pop();
       }
       else if (c == ']') {
-        if (ST.empty()) ST.push(c);
-        else if (ST.top() == '[') ST.pop();
-
+        if (ST.empty() || ST.top() != '[') {
+          ST.push(c);
+          break;
+        }
+        ST.pop();
       }
     }
 
