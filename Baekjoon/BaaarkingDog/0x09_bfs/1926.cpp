@@ -7,8 +7,8 @@
 
 using namespace std;
 
-#define X first;
-#define Y second;
+#define X first
+#define Y second
 
 int board[502][502];
 bool vis[502][502];
@@ -30,13 +30,15 @@ int main() {
   }
 
   for (int i=0; i<n; ++i) {
-    for (int j=0; j<m ++j) {
+    for (int j=0; j<m; ++j) {
       queue<pair<int, int>> q;
       int breadth = 0;
 
-      if (!vis[i][j])
+      if (vis[i][j] || board[i][j] == 0) continue;
       vis[i][j] = 1;
       q.push({i, j});
+      cnt++;
+      breadth++;
 
       while (!q.empty()) {
         pair<int, int> cur = q.front(); q.pop();
@@ -51,13 +53,13 @@ int main() {
 
           vis[nx][ny] = 1;
           q.push({nx, ny});
+          breadth++;
         }
-
       }
 
+      if (max < breadth) max = breadth;
     }
   }
-
 
   cout << cnt << '\n' << max;
 
