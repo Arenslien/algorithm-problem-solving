@@ -86,7 +86,7 @@ int main() {
         if (nx < 0 || nx >= h || ny < 0 || ny >= w) {
           cout << sang[cur.X][cur.Y] + 1 << '\n';
           is_success = true;
-          continue;
+          break;
         }
         if (sang[nx][ny] >= 0 || board[nx][ny] == '#') continue;
         if (fire[nx][ny] != -1 && sang[cur.X][cur.Y] + 1 >= fire[nx][ny]) continue;
