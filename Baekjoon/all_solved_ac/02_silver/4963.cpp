@@ -46,13 +46,14 @@ int main() {
     cin >> w >> h;
     if (w + h == 0) break;
 
-    // 1. 지도 입력
+    // 1. 지도 입력 및 방문 초기화
     for (int i=0; i<h; ++i) {
       for (int j=0; j<w; ++j) {
         cin >> board[i][j];
+        vis[i][j] = false;
       }
     }
-
+    
     int cnt = 0;
     // 2. DFS(BFS는 queue)
     for (int i=0; i<h; ++i) {
