@@ -10,7 +10,7 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  int N, M, cnt = 0;
+  int N, M, cnt = 0, move = 0;
   cin >> N >> M;
 
   deque<int> DQ;
@@ -21,9 +21,19 @@ int main() {
     int index;
     cin >> index;
 
+    int real_index = (index - move > 0?);
+
     while (DQ.front() != index) {
+      cout << "DQ.front(): " << DQ.front() << '\n';
+      cout << "DQ.back(): " << DQ.back() << '\n';
+
+      cout << "index: " << index << '\n';
+      
+      cout << abs(index - D) << "(front) vs (back)"<< abs(index - DQ.back()) << '\n';
+
       // 왼쪽 or 오른쪽 회전을 통해 front() 값에 index가 오게 함.
-      if (abs(index - DQ.front()) < abs(index - DQ.back())) {
+      if (abs(real_index - 1) < abs(DQ.size() - )) {
+
         DQ.push_back(DQ.front());
         DQ.pop_front();
         cout << "B" << '\n';
