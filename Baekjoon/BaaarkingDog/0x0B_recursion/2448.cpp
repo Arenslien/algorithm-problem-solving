@@ -37,11 +37,11 @@ int main() {
   
   cin >> N;
 
-  canvas.assign(2*N, string(2*N, ' '));
+  canvas.assign(N, string(2*N, ' '));
 
   draw_star(0, N-1, N);
 
-  for (int i=0; i<2*N; ++i) cout << canvas[i] << '\n';
+  for (int i=0; i<N; ++i) cout << canvas[i] << '\n';
 
   return 0;
 }
