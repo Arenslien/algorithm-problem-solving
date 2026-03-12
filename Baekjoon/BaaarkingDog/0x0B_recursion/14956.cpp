@@ -48,26 +48,7 @@ int main() {
   return 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 실패한 코드
 // const int dx[4][4] = { // 0(right-turn), 1-2, 3(left-turn)
 //   {0, 1, 1, 0}, // RIGHT-TURN 
 //   {0, 0, 1, 1}, // UP
