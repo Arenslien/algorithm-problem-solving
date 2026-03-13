@@ -5,30 +5,10 @@
 
 using namespace std;
 
-int board[15][15];
-int N, cnt = 0;
-
-int dx[4] = {1, -1, 1, -1};
-int dy[4] = {1, 1, -1, -1};
-
-void check(int x, int y, bool check) {
-  for (int i=0; i<N; ++i) {
-    board[x][i] = check;
-    board[i][y] = check;
-  }
-
-  for (int dir=0; dir<4; ++dir) {
-    int nx = x, ny = y;
-    while (true) {
-      nx = nx + dx[dir];
-      ny = ny + dy[dir];
-      cout << "nx, ny: " << nx << ' ' << ny << '\n';
-
-      if (nx < 0 || nx >= N || ny < 0 || ny >= N) break;
-      board[nx][ny] = check;
-    }
-  }
-}
+bool is_used_column[15];
+bool is_used_diagonal[30];
+bool is_used_diagonal[30];
+int N;
 
 void count_queen(int k) {
   // 1. Base Condition
@@ -38,17 +18,13 @@ void count_queen(int k) {
   }
 
   // 2. Backtracking
-  for (int i=0; i<N; ++i) {
-    for (int j=0; j<N; ++j) {
-      if (board[i][j]) continue;
+  for (int i=0; i<N; ++i) { // row
+    for (int j=0; j<N; ++j) { // col
+      if (used_column[j]) continue;
 
-      check(i, j, true); // 
-      count_queen(k+1);
-      check(i, j, false); // 다른 퀸의 영역도 같이 false 해버림.
+      
     }
   }
-
-
 }
 
 int main() {
@@ -63,3 +39,64 @@ int main() {
 
   return 0;
 }
+
+
+
+// int board[15][15];
+// int N, cnt = 0;
+
+// int dx[4] = {1, -1, 1, -1};
+// int dy[4] = {1, 1, -1, -1};
+
+// void check(int x, int y, bool check) {
+//   for (int i=0; i<N; ++i) {
+//     board[x][i] = check;
+//     board[i][y] = check;
+//   }
+
+//   for (int dir=0; dir<4; ++dir) {
+//     int nx = x, ny = y;
+//     while (true) {
+//       nx = nx + dx[dir];
+//       ny = ny + dy[dir];
+//       cout << "nx, ny: " << nx << ' ' << ny << '\n';
+
+//       if (nx < 0 || nx >= N || ny < 0 || ny >= N) break;
+//       board[nx][ny] = check;
+//     }
+//   }
+// }
+
+// void count_queen(int k) {
+//   // 1. Base Condition
+//   if (k == N) {
+//     cnt++;
+//     return;
+//   }
+
+//   // 2. Backtracking
+//   for (int i=0; i<N; ++i) {
+//     for (int j=0; j<N; ++j) {
+//       if (board[i][j]) continue;
+
+//       check(i, j, true); // 
+//       count_queen(k+1);
+//       check(i, j, false); // 다른 퀸의 영역도 같이 false 해버림.
+//     }
+//   }
+
+
+// }
+
+// int main() {
+//   ios::sync_with_stdio(false);
+//   cin.tie(nullptr);
+
+//   cin >> N;
+
+//   count_queen(0);
+
+//   cout << cnt;
+
+//   return 0;
+// }
