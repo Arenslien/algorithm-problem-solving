@@ -5,26 +5,33 @@
 
 using namespace std;
 
-bool is_used_column[15];
-bool is_used_diagonal[30];
-bool is_used_diagonal[30];
-int N;
+bool is_used_column[15]; // N
+bool is_used_diagonal1[29]; // 우상향 x+y     2N-1
+bool is_used_diagonal2[29]; // 우하향 x+y+N-1 2N-1
+int N, cnt = 0;
 
-void count_queen(int k) {
+void count_queen(int r) { // 현재 row
   // 1. Base Condition
-  if (k == N) {
+  if (r == N) {
     cnt++;
     return;
   }
 
   // 2. Backtracking
-  for (int i=0; i<N; ++i) { // row
-    for (int j=0; j<N; ++j) { // col
-      if (used_column[j]) continue;
+  for (int c=0; c<N; ++c) {
+    if (is_used_column[c]) continue;
+    if (is_used_diagonal1[r+c]) continue;
+    if (is_used_diagonal2[r-c+N-1]) continue;
 
-      
-    }
+    is_used_column[c] = true;
+    is_used_diagonal1[r+c] = true;
+    is_used_diagonal2[r-c+N-1] = true;
+    count_queen(r+1);
+    is_used_column[c] = false;
+    is_used_diagonal1[r+c] = false;
+    is_used_diagonal2[r-c+N-1] = false;
   }
+  return;
 }
 
 int main() {
