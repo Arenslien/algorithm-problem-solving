@@ -13,8 +13,16 @@ int is_used[26];
 void solve(int k) {
   // 1. Base Condition
   if (k == L) {
-    for (int i=0; i<L; ++i) cout << code[i];
-    cout << '\n';
+    int vowel = 0, consonant = 0;
+    for (int i=0; i<L; ++i) {
+      if (code[i] == 'a' || code[i] == 'e' || code[i] == 'i' || code[i] == 'o' || code[i] == 'u') vowel++;
+      else consonant++;
+    }
+
+    if (vowel >= 1 && consonant >= 2) {
+      for (int i=0; i<L; ++i) cout << code[i];
+      cout << '\n';
+    }
     return;
   }
 
