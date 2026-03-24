@@ -37,5 +37,16 @@ int main() {
 
   } while (next_permutation(masked, masked + 6));
 
+  // 3. 최대 N 개 중 일부 k개의 순열만 돌리는 경우는?
+  int arr3[5] = {1, 4, 2, 3, 5}; // --> 1, 2, 4 조합은 건너 뜀
+  int k = 3;
+
+  do {
+    for (int i=0; i<k; ++i) {
+      cout << arr3[i] << ' ';
+    }
+    cout << '\n';
+  } while (next_permutation(arr3, arr3 + k));
+
   return 0;
 }
