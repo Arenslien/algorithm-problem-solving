@@ -26,9 +26,13 @@ void move_block(int x, int y, int dir) {
     }
     else if (copied[nx][ny] == copied[x][y]) {
       copied[nx][ny] = copied[x][y] << 1;
+      copied[x][y] = 0;
       is_merged[nx][ny] = true;
     }
     else break;
+
+    x = nx;
+    y = ny;
   }
 }
 
@@ -74,9 +78,6 @@ void solve() {
     for (int j=0; j<N; ++j) {
       if (mx < copied[i][j]) {
         mx = copied[i][j];
-        cout << mx << '\n';
-        for (int i=0; i<5; ++i) cout << direction[i] << ' ';
-        cout << '\n';
       }
     }
   }
@@ -106,6 +107,6 @@ int main() {
   }
 
   cout << mx;
-
+  
   return 0;
 }
